@@ -61,7 +61,8 @@ $ npm install csvtojson --save
 #### Files to update
 .gitignore (node_modules, data/events.csv (don't know if a private file or not))
 
-normally SRC/ is also in .gitignore but to show the work it's better to let it.
+normally in .gitignore but to show the work it's better to let it.
+- SRC/
 
 
 <br/>
