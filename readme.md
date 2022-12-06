@@ -69,7 +69,7 @@ normally in .gitignore but to show the work it's better to let it.
 
 ### Use
 ---
-- go to url : "https://localhost:8000/api/events/${location}" or "https://${port}/api/events/${location}"
+- go to url : "https://localhost:8000/api/events/${localisation}" or "https://${port}/api/events/${localisation}"
 - get json file with clicks and impressions
 
 <br/>
@@ -85,7 +85,7 @@ normally in .gitignore but to show the work it's better to let it.
 
 ##### Future Todos
 - [ ] update correctly the function utlis/FunctionForArray/chooseTheName (with the right formula for distance)
-- [ ] update correctly the function for models/dataModels/findByLocation
+- [ ] update correctly the function for models/dataModels/findBylocalisation
 <br/>
 
 #### IDEA for the API
