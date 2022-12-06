@@ -24,7 +24,7 @@ var __importStar = (this && this.__importStar) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const http = __importStar(require("node:http"));
-const { getDatas, getData } = require("./controllers/dataController");
+const { getDatas, getData } = require("./controllers/dataControllers");
 //TODO : transforme the CSV file to a json file with points of interest
 //? Server
 const server = http.createServer((req, res) => {

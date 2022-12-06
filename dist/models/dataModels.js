@@ -1,4 +1,3 @@
-"use strict";
 const datas = require("../../data/points-of-interest.json");
 function findAll() {
     return new Promise((resolve, reject) => {

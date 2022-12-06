@@ -1,4 +1,4 @@
-const Datas = require("../models/dataModel");
+const Datas = require("../models/dataModels");
 
 //  @des    Gets all datas
 //  @route  GET /api/events

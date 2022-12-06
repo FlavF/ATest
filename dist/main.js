@@ -1,4 +1,3 @@
-"use strict";
 //? Modules
 const server = require("./app");
 //? Datas
