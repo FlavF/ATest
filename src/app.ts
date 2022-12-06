@@ -11,8 +11,8 @@ const server = http.createServer((req, res) => {
   if(req.url === "api/events/" && req.method == "GET"){
     getDatas(req, res);
   } else if (req.url!.match(/\/api\/events\/([0-9]+)/) && req.method === "GET") {
-    const location: string = req.url!.split("/")[3]; //lat&lon
-    getData(req, res, location);
+    const localisation: string = req.url!.split("/")[3]; //lat&lon
+    getData(req, res, localisation);
   } else {
     res.writeHead(404, {"Content-Type": "application/json"});
     res.end(JSON.stringify({message: "Route not found"}));

@@ -19,7 +19,7 @@ async function getDatas(req, res) {
 
 async function getData(req, res, location : string) {
   try {
-    const data = await Datas.findByLocation(location);
+    const data = await Datas.findByLocalisation(localisation);
     if (!data) {
       res.writeHead(404, {"Content-Type": "application/json"});
       res.end(JSON.stringify({message: "Datas not found"}));

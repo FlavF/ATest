@@ -7,7 +7,7 @@
 4. [Installation](#installation)
 5. [Pages](#pages)
 6. [Use](#use)
-7. [TODO](#todo)
+7. [TODOS](#todos)
 8. [FAQs](#faqs)
 
 <br/>
@@ -74,19 +74,23 @@ normally in .gitignore but to show the work it's better to let it.
 
 <br/>
 
-### Todo
+### Todos
 - [X] CSV to JSON
 - [X] connect to Server
 - [X] onepoint
-- [ ] R de CRUD
-- [ ] 
+- [X] R de CRUD
+- [X] CSV to JSon OOP
+- [ ] check errors and type all missing
+- [ ] 1 test at least
 
-
-
+##### Future Todos
+- [ ] update correctly the function utlis/FunctionForArray/chooseTheName (with the right formula for distance)
+- [ ] update correctly the function for models/dataModels/findByLocation
+<br/>
 
 #### IDEA for the API
 ---
-- [ ] cronjob to update the CSV file if generate auto
+- [ ] cronjob to update the CSV file if generate auto and the JSon file auto
 
 <br/>
 

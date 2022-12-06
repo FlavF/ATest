@@ -1,72 +1,27 @@
 import CSVToJSON from "csvtojson";
-import fs from "node:fs";
 import { IDatas, IDescription } from "./Interfaces";
-
-//TODO : reduce row with OOP
+import {readJson, writeToJson} from "./FunctionsJson";
+import { chooseTheName, reduceArray } from "./FunctionsForArray";
 
 //? Read JSon file
-const dataBUFFER = fs.readFileSync("data/points-of-interest.json");
-const dataJSON = dataBUFFER.toString();
-const pointsOfInterest = JSON.parse(dataJSON);
-
-// For 2 points of interest
-export function chooseTheName(latCSV : string, lonCSV : string) {
-    let lat = parseFloat(latCSV);
-    let lon = parseFloat(lonCSV);
-    
-    if (pointsOfInterest[0].lat === lat && pointsOfInterest[0].lon === lon) {
-        return pointsOfInterest[0].name;
-    } else if (pointsOfInterest[1].lat === lat && pointsOfInterest[1].lon === lon) {
-        return pointsOfInterest[1].name;
-    } else if (Math.abs(pointsOfInterest[0].lat - lat) > Math.abs(pointsOfInterest[1].lat - lat) && Math.abs(pointsOfInterest[0].lon - lon) > Math.abs(pointsOfInterest[1].lon - lon)) {
-        return pointsOfInterest[1].name;
-    } else if (Math.abs(pointsOfInterest[1].lat - lat) > Math.abs(pointsOfInterest[0].lat - lat) && Math.abs(pointsOfInterest[1].lon - lon) > Math.abs(pointsOfInterest[0].lon - lon)) {
-        return pointsOfInterest[0].name;
-    } else {
-        return "Autre point d'interet";
-    }
-    //TODO: Look for ideas for the 2 others possibilities
-}
+const pointsOfInterest = readJson("data/points-of-interest.json")
 
 //? convert CSV file to JSON array
 const convertToJson = CSVToJSON().fromFile("data/events.csv").then((datas: Array<IDatas>) => {
     //? Create the new patern of the JSON from csv datas
     const newJson : Array<IDescription> = datas.map(data => ({
-        lat: (chooseTheName(data.lat,data.lon) === pointsOfInterest[0].name)? pointsOfInterest[0].lat : pointsOfInterest[1].lat,
-        lon: (chooseTheName(data.lat,data.lon) === pointsOfInterest[0].name)? pointsOfInterest[0].lon : pointsOfInterest[1].lon,
-        name : chooseTheName(data.lat,data.lon) ,
+        lat:(chooseTheName(data.lat, data.lon, pointsOfInterest) == pointsOfInterest[0].name)? pointsOfInterest[0].lat :pointsOfInterest[1].lat,
+        lon: (chooseTheName(data.lat, data.lon, pointsOfInterest) == pointsOfInterest[0].name)? pointsOfInterest[0].lon :pointsOfInterest[1].lon,
+        name : chooseTheName(data.lat,data.lon, pointsOfInterest),
         impressions : (data.event_type === "imp")? 1 : 0,
         clicks : (data.event_type === "click")? 1 : 0
     }))
     
-    //? Add all data only with the 2 points of interest
-    const datasJson = (newJson = []) => {
-        const res = newJson.reduce((accumulator, currentValue) => {
-            let check = false;
-            for (let acc of accumulator) {
-                if (acc.name === currentValue.name) {
-                    check = true;
-                    (currentValue.impressions === 1)? acc.impressions++ : acc.clicks++
-                }
-            }
-            if (!check) {
-                currentValue.impressions === 1 || currentValue.clicks === 1
-                accumulator.push(currentValue);
-            }
-            return accumulator;
-        }, []);
-        return res;
-    }
-   
-    //? write the datas on the json file
-    fs.writeFile("data/datas.json", JSON.stringify(datasJson(newJson), null, 4), (err) => {
-        try {
-            console.log("CSV to JSON done")
-        } catch (error) {
-            console.log(err);
-        }
-    });
+    //? Reduce the Array with the points of interest
+    reduceArray(newJson)
     
+    //? Write the datas on the json file
+    writeToJson("data/datas.json", reduceArray(newJson))
 })
 
 
