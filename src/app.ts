@@ -1,7 +1,10 @@
 import * as http from "node:http";
 const {getDatas, getData} = require("./controllers/dataControllers");
+const convertToJson = require ("./utils/csvToJson")
 
-//TODO : transforme the CSV file to a json file with points of interest
+//? CSV file to a json file with points of interest
+convertToJson;
+
 
 //? Server
 const server = http.createServer((req, res) => {

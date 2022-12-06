@@ -75,7 +75,7 @@ normally in .gitignore but to show the work it's better to let it.
 <br/>
 
 ### Todo
-- [ ] CSV to JSON
+- [X] CSV to JSON
 - [X] connect to Server
 - [X] onepoint
 - [ ] R de CRUD
