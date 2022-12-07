@@ -1,6 +1,15 @@
 "use strict";
+var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
+    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
+    return new (P || (P = Promise))(function (resolve, reject) {
+        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
+        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
+        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
+        step((generator = generator.apply(thisArg, _arguments || [])).next());
+    });
+};
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.reduceArray = exports.chooseTheName = exports.findTheClosestCoordinateToPointOfInterest = exports.distanceInKmBetweenEarthCoordinates = void 0;
+exports.reduceArray = exports.findTheClosestCoordinateToPointOfInterest = exports.distanceInKmBetweenEarthCoordinates = void 0;
 //? Distance between two coordinates
 function degreesToRadians(degrees) {
     return (degrees * Math.PI) / 180;
@@ -17,46 +26,28 @@ function distanceInKmBetweenEarthCoordinates(lat1, lon1, lat2, lon2) {
 }
 exports.distanceInKmBetweenEarthCoordinates = distanceInKmBetweenEarthCoordinates;
 function findTheClosestCoordinateToPointOfInterest(latitude, longitude, jsonFile) {
-    let parseLat = parseFloat(latitude);
-    let parseLon = parseFloat(longitude);
-    let newArray = [];
-    //? if the coordinates matches
-    for (let jFile of jsonFile) {
-        if (parseLat === jFile.lat && parseLon === jFile.lon) {
-            return jFile;
+    return __awaiter(this, void 0, void 0, function* () {
+        let parseLat = parseFloat(latitude);
+        let parseLon = parseFloat(longitude);
+        let newArray = [];
+        //? if the coordinates matches
+        for (let jFile of jsonFile) {
+            if (parseLat === jFile.lat && parseLon === jFile.lon) {
+                return jFile;
+            }
         }
-    }
-    //? if not the same coordinates
-    for (let jFile of jsonFile) {
-        //? Calculate the distance between the point gps given by the header and the ones in the json file
-        let distance = distanceInKmBetweenEarthCoordinates(parseLat, parseLon, jFile.lat, jFile.lon);
-        newArray.push(distance);
-    }
-    //? Find the key of the smallest distance
-    let smallest = newArray.indexOf(Math.min(...newArray));
-    return jsonFile[smallest];
+        //? if not the same coordinates
+        for (let jFile of jsonFile) {
+            //? Calculate the distance between the point gps given by the header and the ones in the json file
+            let distance = distanceInKmBetweenEarthCoordinates(parseLat, parseLon, jFile.lat, jFile.lon);
+            newArray.push(distance);
+        }
+        //? Find the key of the smallest distance
+        let smallest = newArray.indexOf(Math.min(...newArray));
+        return yield jsonFile[smallest];
+    });
 }
 exports.findTheClosestCoordinateToPointOfInterest = findTheClosestCoordinateToPointOfInterest;
-function chooseTheName(latCSV, lonCSV, jsonFile) {
-    let lat1 = parseFloat(latCSV);
-    let lon1 = parseFloat(lonCSV);
-    // For 3 GPS coordinates
-    let lat2 = jsonFile[0].lat;
-    let lon2 = jsonFile[0].lon;
-    let lat3 = jsonFile[1].lat;
-    let lon3 = jsonFile[1].lon;
-    //The closest localisation
-    if (distanceInKmBetweenEarthCoordinates(lat1, lon1, lat2, lon2) > distanceInKmBetweenEarthCoordinates(lat1, lon1, lat3, lon3)) {
-        return jsonFile[1].name;
-    }
-    else if (distanceInKmBetweenEarthCoordinates(lat1, lon1, lat2, lon2) < distanceInKmBetweenEarthCoordinates(lat1, lon1, lat3, lon3)) {
-        return jsonFile[0].name;
-    }
-    else {
-        throw "Not Possible";
-    }
-} // Try for multiple GPS coordinates ?
-exports.chooseTheName = chooseTheName;
 function reduceArray(array = []) {
     const res = array.reduce((accumulator, currentValue) => {
         let check = false;

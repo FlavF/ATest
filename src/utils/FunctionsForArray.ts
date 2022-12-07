@@ -19,11 +19,11 @@ export function distanceInKmBetweenEarthCoordinates(lat1 : number, lon1 : number
   return earthRadiusKm * c;
 }
 
-export function findTheClosestCoordinateToPointOfInterest(latitude : string, longitude : string, jsonFile : Array<IDescription>) {
+export async function findTheClosestCoordinateToPointOfInterest(latitude : string, longitude : string, jsonFile : Array<IDescription>) {
   let parseLat = parseFloat(latitude);
   let parseLon = parseFloat(longitude);
   let newArray: number[] = [];
-  
+
   //? if the coordinates matches
   for (let jFile of jsonFile) {
     if (parseLat === jFile.lat && parseLon === jFile.lon) {
@@ -33,34 +33,17 @@ export function findTheClosestCoordinateToPointOfInterest(latitude : string, lon
   //? if not the same coordinates
   for (let jFile of jsonFile) {
     //? Calculate the distance between the point gps given by the header and the ones in the json file
-    let distance = distanceInKmBetweenEarthCoordinates(parseLat, parseLon, jFile.lat, jFile.lon);
+ 
+    let distance = distanceInKmBetweenEarthCoordinates(parseLat, parseLon,jFile.lat, jFile.lon);
     newArray.push(distance);
   }
-  
+
   //? Find the key of the smallest distance
   let smallest = newArray.indexOf(Math.min(...newArray));
-  return jsonFile[smallest];
+
+  return await jsonFile[smallest];
 }
 
-export function chooseTheName(latCSV : string, lonCSV : string, jsonFile : Array<IDescription>) {
-  let lat1 = parseFloat(latCSV);
-  let lon1 = parseFloat(lonCSV);
-  
-  // For 3 GPS coordinates
-  let lat2 = jsonFile[0].lat;
-  let lon2 = jsonFile[0].lon;
-  let lat3 = jsonFile[1].lat;
-  let lon3 = jsonFile[1].lon;
-  
-  //The closest localisation
-  if (distanceInKmBetweenEarthCoordinates(lat1, lon1, lat2, lon2) > distanceInKmBetweenEarthCoordinates(lat1, lon1, lat3, lon3)) {
-    return jsonFile[1].name;
-  } else if (distanceInKmBetweenEarthCoordinates(lat1, lon1, lat2, lon2) < distanceInKmBetweenEarthCoordinates(lat1, lon1, lat3, lon3)) {
-    return jsonFile[0].name;
-  } else {
-    throw "Not Possible";
-  }
-} // Try for multiple GPS coordinates ?
 
 export function reduceArray(array = []) {
   const res = array.reduce((accumulator, currentValue) => {

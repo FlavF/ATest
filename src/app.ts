@@ -3,9 +3,7 @@ const { getDatas, getData} = require("./controllers/dataControllers");
 const { convertToJson } = require("./utils/csvToJson");
 
 //? CSV file to a json file with points of interest
-
 convertToJson;
-
 
 //? Datas
 const PORT: string | number = process.env.PORT || 8000;

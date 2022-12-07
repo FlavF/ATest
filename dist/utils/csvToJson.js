@@ -12,9 +12,9 @@ const pointsOfInterest = (0, FunctionsJson_1.readJson)("data/points-of-interest.
 const convertToJson = (0, csvtojson_1.default)().fromFile("data/events.csv").then((datas) => {
     //? Create the new patern of the JSON from csv datas
     const newJson = datas.map(data => ({
-        lat: ((0, FunctionsForArray_1.chooseTheName)(data.lat, data.lon, pointsOfInterest) == pointsOfInterest[0].name) ? pointsOfInterest[0].lat : pointsOfInterest[1].lat,
-        lon: ((0, FunctionsForArray_1.chooseTheName)(data.lat, data.lon, pointsOfInterest) == pointsOfInterest[0].name) ? pointsOfInterest[0].lon : pointsOfInterest[1].lon,
-        name: (0, FunctionsForArray_1.chooseTheName)(data.lat, data.lon, pointsOfInterest),
+        lat: (0, FunctionsForArray_1.findTheClosestCoordinateToPointOfInterest)(data.lat, data.lon, pointsOfInterest).lat,
+        lon: (0, FunctionsForArray_1.findTheClosestCoordinateToPointOfInterest)(data.lat, data.lon, pointsOfInterest).lon,
+        name: (0, FunctionsForArray_1.findTheClosestCoordinateToPointOfInterest)(data.lat, data.lon, pointsOfInterest).name,
         impressions: (data.event_type === "imp") ? 1 : 0,
         clicks: (data.event_type === "click") ? 1 : 0
     }));

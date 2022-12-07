@@ -89,6 +89,7 @@ normally in .gitignore but to show the work it's better to let it :
 ##### Future Todos
 - [ ] update for many GPS Points of interest the function utils/FunctionForArray/chooseTheName (for now, online for 2 points of interest)
 
+
 <br/>
 
 #### IDEA for the API
@@ -100,8 +101,8 @@ normally in .gitignore but to show the work it's better to let it :
 ### FAQs
 ---
 
-
-
+- Why this architecture MVC without class & methods ?
+Probably better to manage a biggest API.
 
 
 
