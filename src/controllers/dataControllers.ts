@@ -17,9 +17,9 @@ async function getDatas(req, res) {
 //  @des    Gets single datas
 //  @route  GET /api/events
 
-async function getData(req, res, location : string) {
+async function getData(req, res, lat:string, lon:string) {
   try {
-    const data = await Datas.findByLocalisation(localisation);
+    const data = await Datas.findByLocalisation(lat, lon);
     if (!data) {
       res.writeHead(404, {"Content-Type": "application/json"});
       res.end(JSON.stringify({message: "Datas not found"}));

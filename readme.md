@@ -49,7 +49,7 @@ $ npm install --save-dev lite-server // To visualise
 $ npx tsc --init  // To create tsconfig and compile TS
 $ npx tsc -w   // TS watch mode (separate terminal window)
 $ npm install nodemon --save-dev //to compile JS code when update
-$ npm install csvtojson --save
+$ npm install csvtojson --save // To get data from csv to json files
 ```
 
 <br/>
@@ -84,18 +84,20 @@ normally in .gitignore but to show the work it's better to let it.
 - [ ] 1 test at least
 
 ##### Future Todos
-- [ ] update correctly the function utlis/FunctionForArray/chooseTheName (with the right formula for distance)
-- [ ] update correctly the function for models/dataModels/findBylocalisation
+- [ ] update for many GPS Points of interest the function utils/FunctionForArray/chooseTheName (for now, online for 2 points of interest)
+
 <br/>
 
 #### IDEA for the API
 ---
 - [ ] cronjob to update the CSV file if generate auto and the JSon file auto
-
+- [ ] Possibility to install \$ npm install gps-distance //To get the distance between 2 gps coordinates or multiples (maybe useful for multiples)
 <br/>
 
 ### FAQs
 ---
+
+
 
 
 

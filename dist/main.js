@@ -37,7 +37,10 @@ const server = http.createServer((req, res) => {
     }
     else if (req.url.match(/\/api\/events\/([0-9]+)/) && req.method === "GET") {
         const localisation = req.url.split("/")[3]; //lat&lon
-        getData(req, res, localisation);
+        let lat = localisation.split("&")[0];
+        let lon = localisation.split("&")[1];
+        console.log(lat, lon);
+        getData(req, res, lat, lon);
     }
     else {
         res.writeHead(404, { "Content-Type": "application/json" });

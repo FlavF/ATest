@@ -24,10 +24,10 @@ function getDatas(req, res) {
 }
 //  @des    Gets single datas
 //  @route  GET /api/events
-function getData(req, res, location) {
+function getData(req, res, lat, lon) {
     return __awaiter(this, void 0, void 0, function* () {
         try {
-            const data = yield Datas.findByLocalisation(localisation);
+            const data = yield Datas.findByLocalisation(lat, lon);
             if (!data) {
                 res.writeHead(404, { "Content-Type": "application/json" });
                 res.end(JSON.stringify({ message: "Datas not found" }));
