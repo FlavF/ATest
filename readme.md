@@ -24,6 +24,7 @@ Node.js Typescript API MVC
 - [TypeScript](https://www.typescriptlang.org/)
 - [nodemon](https://www.npmjs.com/package/nodemon)
 - [csvtojson](https://www.npmjs.com/package/csvtojson)
+- [jest](https://jestjs.io/)
 
 
 <br/>
@@ -63,7 +64,7 @@ $ npm install --save-dev jest ts-jest @types/jest
 #### Files to update
 .gitignore (node_modules, data/events.csv (don't know if a private file or not))
 
-normally in .gitignore but to show the work it's better to let it.
+normally in .gitignore but to show the work it's better to let it :
 - SRC/
 
 

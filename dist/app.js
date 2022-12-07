@@ -39,7 +39,6 @@ const server = http.createServer((req, res) => {
         const localisation = req.url.split("/")[3]; //lat&lon
         let lat = localisation.split("&")[0];
         let lon = localisation.split("&")[1];
-        console.log(lat, lon);
         getData(req, res, lat, lon);
     }
     else {

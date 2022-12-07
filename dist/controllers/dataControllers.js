@@ -27,7 +27,7 @@ function getDatas(req, res) {
 function getData(req, res, lat, lon) {
     return __awaiter(this, void 0, void 0, function* () {
         try {
-            const data = yield Datas.findByLocalisation(lat, lon);
+            const data = yield Datas.findByCoordinates(lat, lon);
             if (!data) {
                 res.writeHead(404, { "Content-Type": "application/json" });
                 res.end(JSON.stringify({ message: "Datas not found" }));

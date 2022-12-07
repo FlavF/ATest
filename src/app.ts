@@ -12,11 +12,10 @@ convertToJson;
 const server = http.createServer((req, res) => {
   if (req.url === "api/events/" && req.method == "GET") {
     getDatas(req, res);
-  } else if (req.url !.match(/\/api\/events\/([0-9]+)/) && req.method === "GET") {
-    const localisation: string = req.url !.split("/")[3]; //lat&lon
+  } else if (req.url!.match(/\/api\/events\/([0-9]+)/) && req.method === "GET") {
+    const localisation: string = req.url!.split("/")[3]; //lat&lon
     let lat = localisation.split("&")[0];
     let lon = localisation.split("&")[1];
-    console.log(lat,lon)
     getData(req, res, lat, lon);
   } else {
     res.writeHead(404, {"Content-Type": "application/json"});
