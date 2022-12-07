@@ -50,6 +50,8 @@ $ npx tsc --init  // To create tsconfig and compile TS
 $ npx tsc -w   // TS watch mode (separate terminal window)
 $ npm install nodemon --save-dev //to compile JS code when update
 $ npm install csvtojson --save // To get data from csv to json files
+
+$ npm install --save-dev jest ts-jest @types/jest
 ```
 
 <br/>
