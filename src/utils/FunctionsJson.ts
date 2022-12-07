@@ -6,8 +6,8 @@ export function readJson(jsonFile : string){
     return JSON.parse(dataJSON);
 }
 
-export function writeToJson(fileJson:string, datas){
-    fs.writeFile(fileJson, JSON.stringify(datas, null, 4), (err) => {
+export async function writeToJson(fileJson:string, datas){
+   await fs.writeFile(fileJson, JSON.stringify(datas, null, 4), (err) => {
         try {
             console.log("CSV to JSON done");
         } catch (error) {

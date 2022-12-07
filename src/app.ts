@@ -1,12 +1,14 @@
 import * as http from "node:http";
-const {getDatas, getData} = require("./controllers/dataControllers");
-const convertToJson = require("./utils/csvToJson");
+const { getDatas, getData} = require("./controllers/dataControllers");
+const { convertToJson } = require("./utils/csvToJson");
+
+//? CSV file to a json file with points of interest
+
+convertToJson;
+
 
 //? Datas
 const PORT: string | number = process.env.PORT || 8000;
-
-//? CSV file to a json file with points of interest
-convertToJson;
 
 //? Server
 const server = http.createServer((req, res) => {

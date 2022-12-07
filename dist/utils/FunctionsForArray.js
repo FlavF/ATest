@@ -40,11 +40,6 @@ exports.findTheClosestCoordinateToPointOfInterest = findTheClosestCoordinateToPo
 function chooseTheName(latCSV, lonCSV, jsonFile) {
     let lat1 = parseFloat(latCSV);
     let lon1 = parseFloat(lonCSV);
-    //TODO:For All GPS in point of interest and the lat1 & lon1
-    // const data = jsonFile.find((j) => distanceInKmBetweenEarthCoordinates(lat1, lon1, j.lat, j.lon));
-    // console.log(data)//! not ok revoir const data
-    // let key = Object.keys(data).reduce((key, v) => (data[v] < data[key]? v : key))
-    // return jsonFile[key].name
     // For 3 GPS coordinates
     let lat2 = jsonFile[0].lat;
     let lon2 = jsonFile[0].lon;
