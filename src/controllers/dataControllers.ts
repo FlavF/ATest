@@ -6,7 +6,7 @@ const Datas = require("../models/dataModels");
 export async function getDatas(req, res) {
   try {
     const datas = await Datas.findAll();
-
+    
     res.writeHead(200, {"Content-Type": "application/json"});
     res.end(JSON.stringify(datas));
   } catch (error) {

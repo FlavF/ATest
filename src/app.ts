@@ -1,19 +1,12 @@
 import * as http from "node:http";
 import { getDatas, getData} from "./controllers/dataControllers";
-import { convertToJson } from "./csvToJson";
-
-
-
 
 //? Datas
 const PORT: string | number = process.env.PORT || 8000;
 
 //? Server
 const server = http.createServer((req, res) => {
-  //? create CSV file to a json file with points of interest
-  convertToJson;
-  
-  if (req.url === "api/events/" && req.method == "GET") {
+  if (req.url === "/api/events/" && req.method == "GET") {
     getDatas(req, res);
   } else if (req.url!.match(/\/api\/events\/([0-9]+)/) && req.method === "GET") {
     const localisation: string = req.url!.split("/")[3]; //lat&lon

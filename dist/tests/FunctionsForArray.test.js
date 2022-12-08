@@ -26,6 +26,7 @@ describe("Functions for array test", () => {
             impressions: 1,
             clicks: 2
         };
+        //? To verify
         expect(test).toEqual(answer);
     });
 });

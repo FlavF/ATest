@@ -1,5 +1,7 @@
 # Projet Test - A
 
+Start 2022/12/05 - End 2022/12/08
+
 ## Table of Contents
 1. [General Info](#general-info)
 2. [Stacks](#stacks)
@@ -34,7 +36,6 @@ Node.js Typescript API MVC
 - 1 test at least
 - no type = any
 
-
 <br/>
 
 ### Installation
@@ -50,8 +51,7 @@ $ npx tsc --init  // To create tsconfig and compile TS
 $ npx tsc -w   // TS watch mode (separate terminal window)
 $ npm install nodemon --save-dev //to compile JS code when update
 $ npm install csvtojson --save // To get data from csv to json files
-
-$ npm install --save-dev jest ts-jest @types/jest
+$ npm install --save-dev jest ts-jest @types/jest  //To test
 ```
 
 <br/>
@@ -73,7 +73,7 @@ normally in .gitignore but to show the work it's better to let it :
 
 ### Use
 ---
-- go to url : "https://localhost:8000/api/events/${localisation}" or "https://${port}/api/events/${localisation}"
+- go to url : "https://localhost:8000/api/events/${lat&lon}" or "https://${port}/api/events/${lat&lon}"
 - get json file with clicks and impressions
 
 <br/>
@@ -85,11 +85,12 @@ normally in .gitignore but to show the work it's better to let it :
 - [X] R de CRUD
 - [X] CSV to JSon OOP
 - [X] 1 test at least
-- [ ] check errors and type all missing
+- [X] check errors and type all missing
 
 ##### Future Todos
 - [X] update for many GPS Points of interest the function utils/FunctionForArray/chooseTheName (for now, online for 2 points of interest)
 - [ ] reduce the newJson ( create a function/class ?)
+- Maybe more type, better MVC 
 
 <br/>
 

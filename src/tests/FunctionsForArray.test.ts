@@ -3,7 +3,6 @@ import { IDescription } from "../utils/Interfaces";
 
 
 describe("Functions for array test", ()=>{
-    
     test("closest coordinates with points of interest coordinates", () =>{  
         const jsonFile : Array<IDescription>= [
             {
@@ -30,7 +29,7 @@ describe("Functions for array test", ()=>{
             impressions: 1,
             clicks: 2
         }
-        
+        //? To verify
         expect(test).toEqual(answer)
     })
 })

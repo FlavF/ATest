@@ -2,12 +2,13 @@
   "name": "test-a",
   "version": "1.0.0",
   "description": "",
-  "main": "main.js",
+  "main": "app.js",
   "scripts": {
     "start": "node dist/app",
     "dev": "nodemon dist/app",
     "tsc": "npx tsc -w",
-    "test": "jest "
+    "csvToJson": "node dist/utils/csvToJson.js",
+    "test": "jest"
   },
   "author": "",
   "license": "ISC",

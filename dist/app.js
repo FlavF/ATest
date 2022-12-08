@@ -25,14 +25,11 @@ var __importStar = (this && this.__importStar) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 const http = __importStar(require("node:http"));
 const dataControllers_1 = require("./controllers/dataControllers");
-const csvToJson_1 = require("./csvToJson");
 //? Datas
 const PORT = process.env.PORT || 8000;
 //? Server
 const server = http.createServer((req, res) => {
-    //? create CSV file to a json file with points of interest
-    csvToJson_1.convertToJson;
-    if (req.url === "api/events/" && req.method == "GET") {
+    if (req.url === "/api/events/" && req.method == "GET") {
         (0, dataControllers_1.getDatas)(req, res);
     }
     else if (req.url.match(/\/api\/events\/([0-9]+)/) && req.method === "GET") {
