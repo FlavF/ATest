@@ -3,7 +3,7 @@ const Datas = require("../models/dataModels");
 //  @des    Gets all datas
 //  @route  GET /api/events
 
-async function getDatas(req, res) {
+export async function getDatas(req, res) {
   try {
     const datas = await Datas.findAll();
 
@@ -17,7 +17,7 @@ async function getDatas(req, res) {
 //  @des    Gets single datas
 //  @route  GET /api/events
 
-async function getData(req, res, lat : string, lon : string) {
+export async function getData(req, res, lat : string, lon : string) {
   try {
     const data = await Datas.findByCoordinates(lat, lon);
     if (!data) {
@@ -31,8 +31,3 @@ async function getData(req, res, lat : string, lon : string) {
     console.log(error);
   }
 }
-
-module.exports = {
-  getDatas,
-  getData
-};

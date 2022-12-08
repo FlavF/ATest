@@ -9,7 +9,6 @@
 6. [Use](#use)
 7. [TODOS](#todos)
 
-
 <br/>
 
 ### General Info
@@ -41,7 +40,7 @@ Node.js Typescript API MVC
 ### Installation
 ---
 
-Terminal commands use:
+Terminal commands used :
 
 ```
 $ npm init // To install package.json
@@ -62,7 +61,9 @@ $ npm install --save-dev jest ts-jest @types/jest
 
 
 #### Files to update
-.gitignore (node_modules, data/events.csv (don't know if a private file or not))
+.gitignore :
+- node_modules
+- data/events.csv (don't know if a private file or not))
 
 normally in .gitignore but to show the work it's better to let it :
 - SRC/

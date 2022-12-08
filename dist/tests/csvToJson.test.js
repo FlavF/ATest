@@ -4,7 +4,7 @@ const FunctionsJson_1 = require("../utils/FunctionsJson");
 describe("csvToJson test", () => {
     test("Verify if JSon create take all the clicks and impressions of the csv file", () => {
         function sumEventType() {
-            //on file //TODO : find to get the number of event_type
+            //on file CSV number of lines //TODO : count the number of event_type or imp&click
             return 223994;
         }
         function sumImpClicks() {

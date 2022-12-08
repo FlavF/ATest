@@ -1,4 +1,5 @@
-import {IDescription} from "./Interfaces";
+import {IDescription, IDatas} from "./Interfaces";
+
 
 //? Distance between two coordinates
 function degreesToRadians(degrees : number) {
@@ -23,7 +24,7 @@ export function findTheClosestCoordinateToPointOfInterest(latitude : string, lon
   let parseLat = parseFloat(latitude);
   let parseLon = parseFloat(longitude);
   let newArray: number[] = [];
-
+  
   //? if the coordinates matches
   for (let jFile of jsonFile) {
     if (parseLat === jFile.lat && parseLon === jFile.lon) {
@@ -33,14 +34,14 @@ export function findTheClosestCoordinateToPointOfInterest(latitude : string, lon
   //? if not the same coordinates
   for (let jFile of jsonFile) {
     //? Calculate the distance between the point gps given by the header and the ones in the json file
- 
+    
     let distance = distanceInKmBetweenEarthCoordinates(parseLat, parseLon,jFile.lat, jFile.lon);
     newArray.push(distance);
   }
-
+  
   //? Find the key of the smallest distance
   let smallest = newArray.indexOf(Math.min(...newArray));
-
+  
   return jsonFile[smallest];
 }
 

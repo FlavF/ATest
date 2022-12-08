@@ -1,3 +1,4 @@
+"use strict";
 var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
     function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
     return new (P || (P = Promise))(function (resolve, reject) {
@@ -7,6 +8,8 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
         step((generator = generator.apply(thisArg, _arguments || [])).next());
     });
 };
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.getData = exports.getDatas = void 0;
 const Datas = require("../models/dataModels");
 //  @des    Gets all datas
 //  @route  GET /api/events
@@ -22,6 +25,7 @@ function getDatas(req, res) {
         }
     });
 }
+exports.getDatas = getDatas;
 //  @des    Gets single datas
 //  @route  GET /api/events
 function getData(req, res, lat, lon) {
@@ -42,7 +46,4 @@ function getData(req, res, lat, lon) {
         }
     });
 }
-module.exports = {
-    getDatas,
-    getData
-};
+exports.getData = getData;
