@@ -1,10 +1,11 @@
-import {findTheClosestCoordinateToPointOfInterest} from "../utils/FunctionsForArray"
-import { readJson } from "../utils/FunctionsJson";
+import { findTheClosestCoordinateToPointOfInterest } from "../utils/FunctionsForArray";
+import { IDescription } from "../utils/Interfaces";
+
 
 describe("Functions for array test", ()=>{
     
     test("closest coordinates with points of interest coordinates", () =>{  
-        const jsonFile = [
+        const jsonFile : Array<IDescription>= [
             {
                 lat: 0.01,
                 lon: 0.00,

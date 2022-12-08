@@ -25,9 +25,9 @@ var __importStar = (this && this.__importStar) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 const http = __importStar(require("node:http"));
 const { getDatas, getData } = require("./controllers/dataControllers");
-const { convertToJson } = require("./utils/csvToJson");
+const csvToJson_1 = require("./csvToJson");
 //? CSV file to a json file with points of interest
-convertToJson;
+(0, csvToJson_1.convertToJson)();
 //? Datas
 const PORT = process.env.PORT || 8000;
 //? Server

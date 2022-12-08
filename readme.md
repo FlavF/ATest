@@ -8,7 +8,7 @@
 5. [Pages](#pages)
 6. [Use](#use)
 7. [TODOS](#todos)
-8. [FAQs](#faqs)
+
 
 <br/>
 
@@ -83,12 +83,12 @@ normally in .gitignore but to show the work it's better to let it :
 - [X] onepoint
 - [X] R de CRUD
 - [X] CSV to JSon OOP
+- [X] 1 test at least
 - [ ] check errors and type all missing
-- [ ] 1 test at least
 
 ##### Future Todos
-- [ ] update for many GPS Points of interest the function utils/FunctionForArray/chooseTheName (for now, online for 2 points of interest)
-
+- [X] update for many GPS Points of interest the function utils/FunctionForArray/chooseTheName (for now, online for 2 points of interest)
+- [ ] reduce the newJson ( create a function/class ?)
 
 <br/>
 
@@ -98,11 +98,6 @@ normally in .gitignore but to show the work it's better to let it :
 - [ ] Possibility to install \$ npm install gps-distance //To get the distance between 2 gps coordinates or multiples (maybe useful for multiples)
 <br/>
 
-### FAQs
----
-
-- Why this architecture MVC without class & methods ?
-Probably better to manage a biggest API.
 
 
 

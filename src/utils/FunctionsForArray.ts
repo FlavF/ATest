@@ -19,7 +19,7 @@ export function distanceInKmBetweenEarthCoordinates(lat1 : number, lon1 : number
   return earthRadiusKm * c;
 }
 
-export async function findTheClosestCoordinateToPointOfInterest(latitude : string, longitude : string, jsonFile : Array<IDescription>) {
+export function findTheClosestCoordinateToPointOfInterest(latitude : string, longitude : string, jsonFile : Array<IDescription>) {
   let parseLat = parseFloat(latitude);
   let parseLon = parseFloat(longitude);
   let newArray: number[] = [];
@@ -41,7 +41,7 @@ export async function findTheClosestCoordinateToPointOfInterest(latitude : strin
   //? Find the key of the smallest distance
   let smallest = newArray.indexOf(Math.min(...newArray));
 
-  return await jsonFile[smallest];
+  return jsonFile[smallest];
 }
 
 
